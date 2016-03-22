@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>New Entry</title>
+	<title>Page Edit</title>
+	<link rel="stylesheet" href="/styles/main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<header>
+	<header class="header">
 			{% if user%}
-		    <div><a href="/logout">Logout({{user}})</a></div>
+		    <div class="options"><a href="/logout">Logout({{user}})</a></div>
 		   	{% else %}
-			<div><a href="/login">Log In</a>|<a href="/signup">Sign Up</a></div></div>
+			<div class="options"><a href="/login">Log In</a>|<a href="/signup">Sign Up</a></div></div>
     		{% endif %}
-		<nav>
-			<ul>
-				<li><a href="/">Main Page</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
-		
+    		<div class="page_title">Leonardo's Wiki</div>
 	</header>
-	<section>
+	<br>
+	<section class="main">
 		<form method= "post">
 			<div align="center">
 				<h3>
 					Put Your content
 				</h3>
 			<br>
-			<textarea name = "content" style="width: 300px; height: 300px;">{{content}}</textarea>
+			<textarea class="content" name = "content">{{content}}</textarea>
 			<br>
 			<br>
 			<input type ="submit">
 			</div>
 	</form>
 	</section>
+	<br>
 	<footer>
-		
+	<div class="footer">This Page Was Design By Leonardo Abreu</div>	
 	</footer>
 </body>
 </html>

@@ -18,6 +18,7 @@ class Pages(db.Model):
             pages = db.GqlQuery("select * from Pages order by created ASC")
             memcache.set('pages', pages)
         return pages
+
     @classmethod
     def get_content(self,url):
         pages = db.GqlQuery("select * from Pages order by created DESC")
@@ -26,3 +27,7 @@ class Pages(db.Model):
                 return page.content
         return ""
 
+    @classmethod
+    def verify_page(self,url):
+        page = Pages.all().filter("url = ", url).get()
+        return page

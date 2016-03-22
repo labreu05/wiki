@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Main Page</title>
+	<title>Leonardo's Wiki</title>
+	<link rel="stylesheet" href="/styles/main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<header>
+	<header class="header" >
 			{% if user%}
-		    <div><a href="/logout">Logout({{user}})</a></div>
+		    <div class="options"><a href={{edit_url}}>Edit | </a><a href="/logout">Logout({{user}})</a></div>
 		   	{% else %}
-			<div><a href="/login">Log In</a>|<a href="/signup">Sign Up</a></div></div>
+			<div class="options"><a href="/login">Log In</a>|<a href="/signup">Sign Up</a></div></div>
     		{% endif %}
-		<div>
-			<h1>Main Page</h1>
-		</div>
-		<nav>
-			<ul>
-				<li><a href="/">Main Page</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
+	<div class="page_title">Leonardo's Wiki</div>
 	</header>
-	<section>
-		<p>{{content}}</p>
-		
+	<br>
+	<section class="main">
+		<p class="content">{{content}}</p>
 	</section>
+	<br>
 	<footer>
-		
+	<div class="footer">This Page Was Design By Leonardo Abreu</div>	
 	</footer>
 </body>
 </html>

@@ -16,11 +16,11 @@
 #
 import webapp2
 import re
-from controllers.MainHandler import MainHandler
 from controllers.SignUp import SignUpHandler
 from controllers.LogIn import LogInHandler
 from controllers.LogOut import LogOutHandler
 from controllers.EditPage import EditPageHandler
+from controllers.MainHandler import MainHandler
 
 PAGE_RE = r'(/(?:[a-zA-Z0-9_-]+/?)*)'
 

@@ -13,10 +13,10 @@ class MainHandler(Handler):
     	if pages:
             for page in pages:
                 if page.url==url:
-                    match = page
+                    match = page                   
             if match:
                 memcache.set('Last_Page', url)
-                self.render("Page.html",content=match.content,user=user)
+                self.render("Page.html",content=match.content,user=user,edit_url="_edit"+url)
             else:
                 self.redirect('/_edit'+ url)
     	else:

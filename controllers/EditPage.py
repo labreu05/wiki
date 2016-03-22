@@ -4,7 +4,7 @@ from models.users import Users
 
 class EditPageHandler(Handler):
 	def get(self,page):
-		user = str(self.request.cookies.get('user_id'))
+		user = self.request.cookies.get('user_id')
 		if user:
 			self.render("PageEdit.html",content=Pages.get_content(page),user=user.split("|")[0])
 		else:
@@ -17,7 +17,12 @@ class EditPageHandler(Handler):
 		content = self.request.get("content")
 		self.write(url)
 		if content:
-			new_page = Pages(url=url,user=user,content=content)
-			new_page.put()
+			new_page = Pages.verify_page(url);
+			if new_page:
+				new_page.content = content
+				new_page.put()
+			else:
+				new_page = Pages(url=url,user=user,content=content)
+				new_page.put()
 			self.redirect(url)
-
+		#renderisar el error en pantalla, debe introducir un contenido

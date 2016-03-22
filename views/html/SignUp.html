@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign In</title>
+	<title>Sign Up</title>
+	<link rel="stylesheet" href="/styles/main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<header>
 		    {% if user%}
-		    <div><a href="/logout">Logout({{user}})</a></div>
+		    <div class="options"><a href="/logout">Logout({{user}})</a></div>
 		   	{% else %}
-			<div><a href="/login">Log In</a>|<a href="/signup">Sign Up</a></div></div>
+			<div class="options"><a href="/login">Log In</a>|<a href="/signup">Sign Up</a></div></div>
     		{% endif %}
-		<nav>
+<!-- 		<nav>
 			<ul>
 				<li><a href="/">Main Page</a></li>
 				<li><a href="#">Contact</a></li>
 			</ul>
 		</nav>
-		
+		 -->
 	</header>
 	<section>
 		<form  class="form" method="post">
