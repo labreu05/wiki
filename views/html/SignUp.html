@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign In</title>
+</head>
+<body>
+	<header>
+		    {% if user%}
+		    <div><a href="/logout">Logout({{user}})</a></div>
+		   	{% else %}
+			<div><a href="/login">Log In</a>|<a href="/signup">Sign Up</a></div></div>
+    		{% endif %}
+		<nav>
+			<ul>
+				<li><a href="/">Main Page</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+		
+	</header>
+	<section>
+		<form  class="form" method="post">
+			<div>
+			<br>
+				<span class="form_text text">Username:</span>
+				<input type="text" name ="username" value ={{username}}>
+				<div class="error">{{u_error}}</div>
+				<br>
+			</div>
+			<div>
+				<span class="form_text text">Password:</span>
+				<input type="password" name ="password" value={{password}}>
+				<div class="error">{{p1_error}}</div>
+				<br>
+			</div>
+			<div>
+				<span class="form_text text">Verify Password:</span>
+				<input type="password" name ="verify" value={{verify}}>
+				<div class="error">{{p2_error}}</div>
+				<br>
+			</div>
+			<div>
+				<span class="form_text text">Email:</span>
+				<input type="text" name ="email" value={{email}}>
+				<div class="error">{{e_error}}</div>
+				<br>
+			</div>	
+				<br>
+				<input class="button" type="submit">
+			</form>
+		
+	</section>
+	<footer>
+		
+	</footer>
+</body>
+</html>

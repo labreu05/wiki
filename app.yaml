@@ -1,4 +1,4 @@
-application: wiki
+application: leonardoswiki
 version: 1
 runtime: python27
 api_version: 1
@@ -9,11 +9,17 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: /styles
+- url: /views/styles
   static_dir: styles
   
-- url: /js
+- url: /views/js
   static_dir: js
+  
+- url: /views/images
+  static_dir: images
+
+- url: /views/html
+  static_dir: html 
 
 - url: .*
   script: main.app

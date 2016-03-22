@@ -15,11 +15,19 @@
 # limitations under the License.
 #
 import webapp2
+import re
+from controllers.MainHandler import MainHandler
+from controllers.SignUp import SignUpHandler
+from controllers.LogIn import LogInHandler
+from controllers.LogOut import LogOutHandler
+from controllers.EditPage import EditPageHandler
 
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Hello world!')
+PAGE_RE = r'(/(?:[a-zA-Z0-9_-]+/?)*)'
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/signup', SignUpHandler),
+    ('/login',LogInHandler),
+    ('/logout',LogOutHandler),
+    ('/_edit' + PAGE_RE, EditPageHandler),
+    (PAGE_RE, MainHandler)
 ], debug=True)

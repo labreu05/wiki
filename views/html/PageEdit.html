@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Entry</title>
+</head>
+<body>
+	<header>
+			{% if user%}
+		    <div><a href="/logout">Logout({{user}})</a></div>
+		   	{% else %}
+			<div><a href="/login">Log In</a>|<a href="/signup">Sign Up</a></div></div>
+    		{% endif %}
+		<nav>
+			<ul>
+				<li><a href="/">Main Page</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+		
+	</header>
+	<section>
+		<form method= "post">
+			<div align="center">
+				<h3>
+					Put Your content
+				</h3>
+			<br>
+			<textarea name = "content" style="width: 300px; height: 300px;">{{content}}</textarea>
+			<br>
+			<br>
+			<input type ="submit">
+			</div>
+	</form>
+	</section>
+	<footer>
+		
+	</footer>
+</body>
+</html>

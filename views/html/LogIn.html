@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log In</title>
+</head>
+<body>
+	<header>
+	<div><a href="/login">Log In</a>|<a href="/signup">Sign Up</a></div>
+		<nav>
+			<ul>
+				<li><a href="/">Main Page</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+		
+	</header>
+	<section>
+		<form  class="form" method="post">
+			<div>
+			<br>
+				<span class="form_text text">Username:</span>
+				<input type="text" name ="username" value ={{username}}>
+				<div class="error">{{u_error}}</div>
+				<br>
+			</div>
+			<div>
+				<span class="form_text text">Password:</span>
+				<input type="password" name ="password" value={{password}}>
+				<div class="error">{{p1_error}}</div>
+				<br>
+			</div>
+				<br>
+				<input class="button" type="submit">
+		</form>
+	</section>
+	<footer>
+		
+	</footer>
+</body>
+</html>
