@@ -6,6 +6,7 @@ from google.appengine.ext import db
 
 class History(db.Model):
     url = db.StringProperty(required = True)
+    version = db.IntegerProperty(required = True)
     user = db.StringProperty(required = True)
     content = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)

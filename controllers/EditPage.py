@@ -24,7 +24,8 @@ class EditPageHandler(Handler):
 				new_page.content = content
 			else:
 				new_page = Pages(url=url,user=user,content=content)
-			page_entry = History(url=url,user=user,content=content)
+			version = History.get_versions(url).count()+1
+			page_entry = History(url=url,version=version,user=user,content=content)
 			page_entry.put()
 			new_page.put()
 			self.redirect(url)

@@ -16,13 +16,13 @@
 	</header>
 	<br>
 	<section class="main">
-		<p>
+		<form>
 			{% if versions %}
 				{% for page in versions %}
-				<p> {{page.created}} {{page.content}}<a href="/"></a></p>
+				<p> {{page.created}} {{page.content}} {{page.version}}<a href="/"></a></p>
 				{% endfor %}
 			{% endif %}
-		</p>
+		<form>
 	</section>
 	<br>
 	<footer>
