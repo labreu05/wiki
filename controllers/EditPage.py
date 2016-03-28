@@ -1,6 +1,7 @@
 from controllers.Handler import Handler
 from models.pages import Pages
 from models.users import Users
+from models.history import History
 
 class EditPageHandler(Handler):
 	def get(self,page):
@@ -11,6 +12,7 @@ class EditPageHandler(Handler):
 			self.redirect("/login")
 
 	def post(self,page):
+		page_entry = None
 		long_url = self.request.url
 		url = long_url[long_url.rfind('/'):]
 		user = str(self.request.cookies.get('user_id'))
@@ -20,9 +22,10 @@ class EditPageHandler(Handler):
 			new_page = Pages.verify_page(url);
 			if new_page:
 				new_page.content = content
-				new_page.put()
 			else:
 				new_page = Pages(url=url,user=user,content=content)
-				new_page.put()
+			page_entry = History(url=url,user=user,content=content)
+			page_entry.put()
+			new_page.put()
 			self.redirect(url)
 		#renderisar el error en pantalla, debe introducir un contenido

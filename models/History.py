@@ -5,7 +5,12 @@ from google.appengine.api import memcache
 from google.appengine.ext import db
 
 class History(db.Model):
-    url = db.ReferenceProperty(Pages)
+    url = db.StringProperty(required = True)
     user = db.StringProperty(required = True)
     content = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)
+
+    @classmethod
+    def get_versions(self,url):
+        versions = History.all().filter("url = ", url)
+        return versions

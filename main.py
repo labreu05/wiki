@@ -21,11 +21,13 @@ from controllers.LogIn import LogInHandler
 from controllers.LogOut import LogOutHandler
 from controllers.EditPage import EditPageHandler
 from controllers.MainHandler import MainHandler
+from controllers.HistoryHandler import HistoryHandler
 
 PAGE_RE = r'(/(?:[a-zA-Z0-9_-]+/?)*)'
 
 app = webapp2.WSGIApplication([
     ('/signup', SignUpHandler),
+    ('/_history'+ PAGE_RE, HistoryHandler),
     ('/login',LogInHandler),
     ('/logout',LogOutHandler),
     ('/_edit' + PAGE_RE, EditPageHandler),

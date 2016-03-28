@@ -16,7 +16,7 @@ class MainHandler(Handler):
                     match = page                   
             if match:
                 memcache.set('Last_Page', url)
-                self.render("Page.html",content=match.content,user=user,edit_url="_edit"+url)
+                self.render("Page.html",content=match.content,user=user,edit_url="_edit"+url,history_url="_history"+url)
             else:
                 self.redirect('/_edit'+ url)
     	else:

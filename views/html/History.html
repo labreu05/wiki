@@ -7,8 +7,8 @@
 </head>
 <body>
 	<header class="header" >
-			{% if user%}
-		    <div class="options"><a href={{edit_url}}> Edit </a>|<a href={{history_url}}>  History  </a><a href="/logout"> Logout({{user}}) </a></div>
+			{% if user %}
+		    <div class="options"><a href="/logout">Logout({{user}})</a></div>
 		   	{% else %}
 			<div class="options"><a href="/login">Log In</a>|<a href="/signup">Sign Up</a></div></div>
     		{% endif %}
@@ -16,7 +16,13 @@
 	</header>
 	<br>
 	<section class="main">
-		<p class="content">{{content}}</p>
+		<p>
+			{% if versions %}
+				{% for page in versions %}
+				<p> {{page.created}} {{page.content}}<a href="/"></a></p>
+				{% endfor %}
+			{% endif %}
+		</p>
 	</section>
 	<br>
 	<footer>
