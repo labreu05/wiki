@@ -7,14 +7,29 @@ class EditPageHandler(Handler):
 	def get(self,page):
 		user = self.request.cookies.get('user_id')
 		if user:
-			self.render("PageEdit.html",content=Pages.get_content(page),user=user.split("|")[0])
+			content = Pages.get_content(page)
+			v = self.request.get("v")
+			if v:
+				long_url = self.request.url
+				url = long_url[long_url.rfind('/'):long_url.rfind('?')]
+				versions = History.get_versions(url)
+				if versions:
+					for version in versions:
+						if str(version.version) == v:
+							content = version.content
+			self.render("PageEdit.html",content=content,user=user.split("|")[0])
 		else:
 			self.redirect("/login")
 
 	def post(self,page):
 		page_entry = None
 		long_url = self.request.url
-		url = long_url[long_url.rfind('/'):]
+		v = self.request.get("v")
+		if v:
+			url = long_url[long_url.rfind('/'):long_url.rfind('?')]
+		else:
+			url = long_url[long_url.rfind('/'):]
+		self.write(url)
 		user = str(self.request.cookies.get('user_id'))
 		content = self.request.get("content")
 		self.write(url)

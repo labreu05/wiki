@@ -8,9 +8,7 @@ class MainHandler(Handler):
     def get(self,url):
         found = False
         v = self.request.get("v")
-        # self.write(v)
         match = None
-        miguel = None
         user =str(self.request.cookies.get('user_id')).split("|")[0]
         if user=="None":
             user = ""

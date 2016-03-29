@@ -6,21 +6,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<header>
+	<header class="header">
 		    {% if user%}
 		    <div class="options"><a href="/logout">Logout({{user}})</a></div>
 		   	{% else %}
 			<div class="options"><a href="/login">Log In</a>|<a href="/signup">Sign Up</a></div></div>
     		{% endif %}
-<!-- 		<nav>
-			<ul>
-				<li><a href="/">Main Page</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
-		 -->
+    <div class="page_title">Leonardo's Wiki</div>
 	</header>
-	<section>
+	<br>
+	<section class="main">
+		<h2>Sign Up</h2>
 		<form  class="form" method="post">
 			<div>
 			<br>
@@ -52,8 +48,9 @@
 			</form>
 		
 	</section>
+	<br>
 	<footer>
-		
+		<div class="footer">This Page Was Design By Leonardo Abreu</div>	
 	</footer>
 </body>
 </html>

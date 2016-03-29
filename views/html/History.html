@@ -16,10 +16,24 @@
 	</header>
 	<br>
 	<section class="main">
+		<h2>Page History</h2>
 		<form>
 			{% if versions %}
+				<tr>
+					<td class="history_td">Created</td>
+					<td class="history_td">Content</td>
+					<td class="history_td">Version</td>
+					<td class="history_td">Options</td>
+				</tr>
+				<br>
 				{% for page in versions %}
-				<p> {{page.created}} {{page.content}} {{page.version}}<a href="/"></a></p>
+				<tr>
+					<td class="history_td">{{page.created}}</td>
+					<td class="history_td">{{page.content}}</td>
+					<td class="history_td">V{{page.version}}</td>
+					<td class="history_td"><a href={{page.url}}?v={{page.version}}>View</a>|<a href=/_edit{{page.url}}?v={{page.version}}>Edit</a></td>
+				</tr>
+				<br>
 				{% endfor %}
 			{% endif %}
 		<form>

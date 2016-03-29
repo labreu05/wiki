@@ -13,5 +13,5 @@ class History(db.Model):
 
     @classmethod
     def get_versions(self,url):
-        versions = History.all().filter("url = ", url)
+        versions = History.all().filter("url = ", url).order('-version')
         return versions

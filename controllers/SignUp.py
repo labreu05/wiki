@@ -81,4 +81,6 @@ class SignUpHandler(Handler):
             e = Users(username = username, password = password, email = email, cookie_code=code)
             e.put()
             self.response.headers.add_header('Set-Cookie','user_id=%s; Path=/' %codificar(username))
+            self.response.headers.add_header('Set-Cookie','Location=%s; Path=/' %self.request.url)
+
             self.redirect("/")

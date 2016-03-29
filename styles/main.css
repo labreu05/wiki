@@ -1,6 +1,12 @@
 a{
 	text-decoration:none;
 }
+/*.history_td{
+	width: 25%;
+	text-align: left;
+	height: 20px;
+	background: red;
+}*/
 .options{
 	text-align: right;
 }
@@ -19,6 +25,7 @@ a{
 	margin-left:  15%;
 	background-color: #00cc66;
 }
+
 .header{
 	width: 70%;
 	padding: 10px;
